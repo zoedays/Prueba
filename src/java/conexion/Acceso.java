@@ -6,42 +6,19 @@ import java.util.List;
 
 public class Acceso {
 
-    /*public static Connection getConexion() {
+    public static Connection getConexion() {
         Connection cn;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_rest", "root", "");
+            cn = DriverManager.getConnection("jdbc:mysql://mysql.railway.internal:34040/railway","root","uFpwMobuxMmiSXSYAyBDpmZXgRnAjlnz");
         } catch (ClassNotFoundException e) {
             cn = null;
         } catch (SQLException e) {
             cn = null;
         }
         return cn;
-    }*/
-    
-    public static Connection getConexion() {
-    Connection cn;
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver"); // usa el nuevo driver
-
-        // Leer variables de entorno (que configurarás en Render)
-        String host = System.getenv("DB_HOST");
-        String port = System.getenv("DB_PORT");
-        String dbName = System.getenv("DB_NAME");
-        String user = System.getenv("DB_USER");
-        String password = System.getenv("DB_PASSWORD");
-
-        // Construir la URL
-        String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-
-        cn = DriverManager.getConnection(url, user, password);
-    } catch (ClassNotFoundException | SQLException e) {
-        e.printStackTrace(); // para debug en logs de Render
-        cn = null;
     }
-    return cn;
-}
-
+    
     public static String ejecutar(String sql) {
         String msg = null;
         try {
