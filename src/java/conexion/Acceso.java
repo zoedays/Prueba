@@ -10,7 +10,7 @@ public class Acceso {
         Connection cn;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://mysql.railway.internal:34040/railway","root","uFpwMobuxMmiSXSYAyBDpmZXgRnAjlnz");
+            cn = DriverManager.getConnection("jdbc:mysql://ballast.proxy.rlwy.net:34040/railway","root","uFpwMobuxMmiSXSYAyBDpmZXgRnAjlnz");
         } catch (ClassNotFoundException e) {
             cn = null;
         } catch (SQLException e) {
